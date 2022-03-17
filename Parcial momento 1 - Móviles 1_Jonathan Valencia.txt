@@ -1,0 +1,69 @@
+Nombre: Jonathan Leandro Valencia Moná
+
+R/1: Que (=) es para asignar valor a una variable, mientras que (==) es para realizar comparaciones entre variables
+R/2: Los tipos de datos son: int, short, long, double, float, boolean, byte, char,  java.util.Date
+R/3: Es Oracle
+R/4: JAVA sirve para desarollar aplicaciones moviles, hojas de cálculo programas de escritorio, programas web, entre otros
+
+
+Código del algoritmo: 
+package com.edu.cesde;
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Scanner inputData = new Scanner(System.in);
+        int numPer, Plato, Hambu=0, Perro=0, Salchi =0,Chor = 0, Propi;
+        double Subt1, Desc1, valorPag, Propina, Subt2, Dect2, Subt3;
+        System.out.println("Ingrese el número de personas: ");
+        numPer = inputData.nextInt();
+        for (int i=1;i<=numPer;i++) {
+            System.out.println("Digite el plato que desea comer la persona "+i+" Así: Hamburguesa (1), Perro (2), Salchipapas (3) o chorizos (4)");
+            Plato = inputData.nextInt();
+            if (Plato==1){
+                Hambu = Hambu +1;
+            }
+            else if (Plato==2){
+                Perro = Perro + 1;
+            }
+            else if (Plato==3){
+                Salchi = Salchi + 1;
+            }
+            else{
+                Chor = Chor +1;
+            }
+        }
+        Subt1 = (Hambu * 10000) + (Perro * 8000) + (Salchi * 6000) + (Chor * 7000);
+        if (Subt1>20000){
+            Desc1 = Subt1 * 0.1;
+        }
+        else {
+            Desc1 = 0;
+        }
+        Subt2 =Subt1 - Desc1;
+        System.out.println("Desea incluir la propina Si (1) o No (2)");
+        Propi = inputData.nextInt();
+        if (Propi==1){
+            Propina = Subt1 * 0.1;
+        }
+        else {
+            Propina = 0;
+        }
+        Subt3 = Subt2 + Propina;
+        if (Hambu>=2 || Perro>=2 || Salchi>=2 || Chor>=2){
+            Dect2 = Subt1 * 0.05;
+        }
+        else{
+            Dect2 = 0;
+        }
+        valorPag = Subt3 - Dect2;
+        if (Subt1>20000){
+            System.out.println("El valor a pagar es: "+valorPag+" recuerde que se le realizó un descuento por compras superiores a 20.000");
+        }
+        else {
+            System.out.println("El valor a pagar es: "+valorPag);
+        }
+
+    }
+}
